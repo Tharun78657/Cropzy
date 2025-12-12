@@ -761,7 +761,7 @@
 
       <div class="team-members">
         <div class="team-member">
-          <div class="member-img" style="background-image: url('');">
+          <div class="member-img" style="background-image: url('images/vivek-removebg-preview.png');">
             <div class="member-overlay">
               <div class="member-info">
                 <h3>Patlolla Vivekananda Reddy</h3>
@@ -770,7 +770,7 @@
             </div>
           </div>
           <div class="team-member-content">
-            <p>Visionary leader with over 15 years of experience in agricultural supply chain management. Committed to
+            <p>Visionary leader with over 10 years of experience in agricultural supply chain management. Committed to
               creating sustainable partnerships between farmers and businesses worldwide.</p>
             <p>His expertise in market intelligence and quality control ensures that Cropzy delivers premium products
               with complete traceability.</p>
@@ -778,7 +778,7 @@
         </div>
 
         <div class="team-member">
-          <div class="member-img" style="background-image: url('');">
+          <div class="member-img" style="background-image: url('images/anil-removebg-preview.png');">
             <div class="member-overlay">
               <div class="member-info">
                 <h3>Pendyala Anil Kumar</h3>
@@ -798,71 +798,82 @@
   </section>
 
   <!-- Updated Contact Section - Compact Design -->
-  <section class="contact-section" id="contact">
+  <!-- New Modern Contact Section -->
+  <section class="contact-section-modern" id="contact">
     <div class="container">
       <div class="section-title-center">
-        <h2>Contact Us</h2>
-        <p>Get in touch with our team for premium agricultural supply solutions tailored to your business needs.</p>
+        <h2>Get in Touch</h2>
+        <p>We are here to help you source the best quality agricultural produce.</p>
       </div>
 
-      <div class="contact-container-compact">
-        <div class="contact-info-compact">
-          <h3>Get In Touch</h3>
-          <p>We'd love to hear from you. Whether you're a farmer looking to sell your produce or a business looking to
-            source high-quality agricultural products, our team is ready to assist you.</p>
+      <div class="modern-contact-wrapper">
+        <!-- Info Side -->
+        <div class="contact-info-side">
+          <h3>Contact Information</h3>
+          <p class="info-intro">Fill up the form and our team will get back to you within 24 hours.</p>
 
-          <div class="contact-details-compact">
-            <div class="contact-detail-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <div>
-                <h4>Address</h4>
-                <p>Anivek Greenfarms Private Limited<br>
-                  Hyderabad, Telangana – 500081, India</p>
-              </div>
-            </div>
-
-            <div class="contact-detail-item">
-              <i class="fas fa-phone"></i>
-              <div>
-                <h4>Phone</h4>
+          <div class="contact-details-list">
+            <div class="c-item">
+              <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+              <div class="c-text">
+                <span>Phone</span>
                 <p>+91 7702498841</p>
               </div>
             </div>
 
-            <div class="contact-detail-item">
-              <i class="fas fa-envelope"></i>
-              <div>
-                <h4>Email</h4>
+            <div class="c-item">
+              <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+              <div class="c-text">
+                <span>Email</span>
                 <p>connect@cropzy.co.in</p>
               </div>
             </div>
 
-            <div class="contact-detail-item">
-              <i class="fas fa-clock"></i>
-              <div>
-                <h4>Business Hours</h4>
-                <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
-                  Saturday: 10:00 AM - 2:00 PM</p>
+            <div class="c-item">
+              <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="c-text">
+                <span>Address</span>
+                <p>Anivek Greenfarms Pvt Ltd<br>Hyderabad, Telangana 500081</p>
               </div>
             </div>
           </div>
+
+          <div class="side-socials">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+
+          <!-- Decorative circle -->
+          <div class="big-circle"></div>
         </div>
 
-        <div class="contact-form-compact">
-          <form id="enquiryFormCompact">
-            <div class="form-group">
-              <input type="text" placeholder="Your Name" required>
+        <!-- Form Side -->
+        <div class="contact-form-side">
+          <form id="contactFormNew">
+            <div class="input-row">
+              <div class="input-wrap">
+                <label>Name</label>
+                <input type="text" placeholder="John Doe" required>
+              </div>
+              <div class="input-wrap">
+                <label>Phone</label>
+                <input type="tel" placeholder="+91 98765 43210" required>
+              </div>
             </div>
-            <div class="form-group">
-              <input type="email" placeholder="Your Email" required>
+
+            <div class="input-wrap">
+              <label>Email</label>
+              <input type="email" placeholder="john@example.com" required>
             </div>
-            <div class="form-group">
-              <input type="text" placeholder="Subject" required>
+
+            <div class="input-wrap">
+              <label>Message</label>
+              <textarea placeholder="Write your requirements here..." rows="4"></textarea>
             </div>
-            <div class="form-group">
-              <textarea placeholder="Your Message" required></textarea>
-            </div>
-            <button type="submit" class="btn">Send Message</button>
+
+            <button type="submit" class="send-btn">Send Message</button>
           </form>
         </div>
       </div>
@@ -874,7 +885,9 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-about">
-          <div class="footer-logo">CROP<span>ZY</span></div>
+          <a href="#home" style="margin-bottom: 10px; display: block;">
+            <img src="images/Cropzy_3.png White Text.png" alt="CROPZY Logo" class="logo-image">
+          </a>
           <p>An emerging B2B company committed to supply of high-quality agricultural produce through fair and
             transparent means.</p>
           <p>Bridging the gap between growers and commercial buyers worldwide with innovation and sustainability.</p>

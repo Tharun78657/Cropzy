@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — ANIVEK GREENFARMS PRIVATE LIMITED (Cropzy)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <header id="mainHeader">
     <div class="container header-container">
@@ -20,50 +24,92 @@
       <nav id="mainNav">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="products.html">Products</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="contact-section" id="contact">
+    <!-- New Modern Contact Section -->
+    <section class="contact-section-modern" id="contact">
       <div class="container">
         <div class="section-title-center">
-          <h2>Contact Us</h2>
-          <p>Reach out for enquiries</p>
+          <h2>Get in Touch</h2>
+          <p>We are here to help you source the best quality agricultural produce.</p>
         </div>
 
-        <div class="contact-container-compact">
-          <div class="contact-info-compact">
-            <h3>Get In Touch</h3>
-            <p>Mail – connect@cropzy.co.in</p>
-            <p>Phone No – +91 7702498841</p>
-            <p>Address – Anivek Greenfarms Private Limited<br>
-              Co Karma, 2nd Floor, Plot No 5, Survey No 62, Inorbit Mall Road, Hitech City, Hyderabad, Telangana – 500081, India.</p>
+        <div class="modern-contact-wrapper">
+          <!-- Info Side -->
+          <div class="contact-info-side">
+            <h3>Contact Information</h3>
+            <p class="info-intro">Fill up the form and our team will get back to you within 24 hours.</p>
+
+            <div class="contact-details-list">
+              <div class="c-item">
+                <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+                <div class="c-text">
+                  <span>Phone</span>
+                  <p>+91 7702498841</p>
+                </div>
+              </div>
+
+              <div class="c-item">
+                <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+                <div class="c-text">
+                  <span>Email</span>
+                  <p>connect@cropzy.co.in</p>
+                </div>
+              </div>
+
+              <div class="c-item">
+                <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="c-text">
+                  <span>Address</span>
+                  <p>Anivek Greenfarms Pvt Ltd<br>Hyderabad, Telangana 500081</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="side-socials">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <!-- Decorative circle -->
+            <div class="big-circle"></div>
           </div>
 
-          <div class="contact-form-compact">
-            <form id="enquiryFormCompact">
-              <div class="form-group">
-                <input type="text" placeholder="Your Name" required>
+          <!-- Form Side -->
+          <div class="contact-form-side">
+            <form id="contactFormNew">
+              <div class="input-row">
+                <div class="input-wrap">
+                  <label>Name</label>
+                  <input type="text" placeholder="John Doe" required>
+                </div>
+                <div class="input-wrap">
+                  <label>Phone</label>
+                  <input type="tel" placeholder="+91 98765 43210" required>
+                </div>
               </div>
-              <div class="form-group">
-                <input type="email" placeholder="Your Email" required>
+
+              <div class="input-wrap">
+                <label>Email</label>
+                <input type="email" placeholder="john@example.com" required>
               </div>
-              <div class="form-group">
-                <input type="text" placeholder="Subject" required>
+
+              <div class="input-wrap">
+                <label>Message</label>
+                <textarea placeholder="Write your requirements here..." rows="4"></textarea>
               </div>
-              <div class="form-group">
-                <textarea placeholder="Your Message" required></textarea>
-              </div>
-              <button type="submit" class="btn">Send Message</button>
+
+              <button type="submit" class="send-btn">Send Message</button>
             </form>
           </div>
         </div>
-
       </div>
     </section>
   </main>
@@ -73,7 +119,8 @@
       <div class="footer-content">
         <div class="footer-about">
           <div class="footer-logo">CROP<span>ZY</span></div>
-          <p>An emerging B2B company committed to supply of high-quality agricultural produce through fair and transparent means.</p>
+          <p>An emerging B2B company committed to supply of high-quality agricultural produce through fair and
+            transparent means.</p>
         </div>
 
         <div class="footer-links">
@@ -82,7 +129,6 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="products.html">Products</a></li>
           </ul>
         </div>
 
@@ -102,4 +148,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>

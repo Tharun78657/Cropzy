@@ -47,15 +47,132 @@ function highlightNavByPage() {
   });
 }
 
+// Header animation on load and scroll
+function animateHeaderOnLoad() {
+  if (!mainHeader) return;
+  
+  // Mark header as loaded
+  mainHeader.classList.add('header-loaded');
+  
+  // Animate logo
+  const logo = document.querySelector('.logo');
+  if (logo && !logo.classList.contains('logo-animate')) {
+    logo.classList.add('logo-animate');
+  }
+  
+  // Animate nav items with stagger effect
+  const navItems = document.querySelectorAll('nav ul li');
+  navItems.forEach((item, index) => {
+    if (!item.classList.contains('nav-item-animate')) {
+      setTimeout(() => {
+        item.classList.add('nav-item-animate');
+      }, 100 * (index + 1));
+    }
+  });
+  
+  // Animate mobile menu button
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  if (mobileMenuBtn && !mobileMenuBtn.classList.contains('menu-btn-animate')) {
+    mobileMenuBtn.classList.add('menu-btn-animate');
+  }
+}
+
+// Re-trigger header animations on scroll (for continuous animation effect)
+let lastScrollTop = 0;
+function animateHeaderOnScroll() {
+  if (!mainHeader) return;
+  
+  const scrollTop = window.scrollY || window.pageYOffset;
+  
+  // Animate when scrolling down past 50px or scrolling back to top
+  if (scrollTop > 50 || (scrollTop < lastScrollTop && scrollTop < 100)) {
+    // Ensure header is visible and animated
+    mainHeader.classList.add('header-loaded');
+    
+    // Re-animate nav items if they're not already animated
+    const navItems = document.querySelectorAll('nav ul li');
+    navItems.forEach((item) => {
+      if (!item.classList.contains('nav-item-animate')) {
+        item.classList.add('nav-item-animate');
+      }
+    });
+  }
+  
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+}
+
+// Hero section animation functions
+function animateHeroOnLoad() {
+  const heroTitle = document.querySelector('.hero h1');
+  const heroText = document.querySelector('.hero p');
+  const heroBtns = document.querySelector('.hero-btns');
+  
+  if (heroTitle && !heroTitle.classList.contains('hero-title-animated')) {
+    heroTitle.classList.add('hero-title-animated');
+  }
+  
+  if (heroText && !heroText.classList.contains('hero-text-animated')) {
+    heroText.classList.add('hero-text-animated');
+  }
+  
+  if (heroBtns && !heroBtns.classList.contains('hero-btns-animated')) {
+    heroBtns.classList.add('hero-btns-animated');
+  }
+}
+
+// Re-trigger hero animations when scrolling back to hero section
+let lastHeroScrollY = 0;
+function animateHeroOnScroll() {
+  const heroSection = document.querySelector('.hero');
+  if (!heroSection) return;
+  
+  const scrollY = window.scrollY || window.pageYOffset;
+  const heroRect = heroSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  
+  // Check if hero section is visible in viewport
+  const isHeroVisible = heroRect.top < windowHeight && heroRect.bottom > 0;
+  const isNearTop = scrollY < 200; // Near the top of the page
+  
+  // Re-animate when hero is visible and near top, or when scrolling back up
+  if ((isHeroVisible && isNearTop) || (scrollY < lastHeroScrollY && scrollY < 300)) {
+    const heroTitle = document.querySelector('.hero h1');
+    const heroText = document.querySelector('.hero p');
+    const heroBtns = document.querySelector('.hero-btns');
+    
+    // Re-trigger animations by removing and re-adding classes
+    if (heroTitle && !heroTitle.classList.contains('hero-title-animated')) {
+      heroTitle.classList.add('hero-title-animated');
+    }
+    if (heroText && !heroText.classList.contains('hero-text-animated')) {
+      heroText.classList.add('hero-text-animated');
+    }
+    if (heroBtns && !heroBtns.classList.contains('hero-btns-animated')) {
+      heroBtns.classList.add('hero-btns-animated');
+    }
+  }
+  
+  lastHeroScrollY = scrollY <= 0 ? 0 : scrollY;
+}
+
 // Header scroll effect + section highlighting (only runs on pages that contain sections)
 function headerAndSectionHandler() {
   if (!mainHeader) return;
 
-  if (window.scrollY > 100) {
+  const scrollTop = window.scrollY;
+  
+  // Add scrolled class for styling changes
+  if (scrollTop > 100) {
     mainHeader.classList.add('scrolled');
   } else {
     mainHeader.classList.remove('scrolled');
   }
+  
+  // Trigger scroll-based animations
+  animateHeaderOnScroll();
+  
+  // Trigger hero animations on scroll
+  animateHeroOnScroll();
 
   // Only perform section-based active link detection on the home page (index)
   const fname = currentPageFilename();
@@ -85,8 +202,28 @@ function headerAndSectionHandler() {
 // Run once on load to set page-level nav highlight
 highlightNavByPage();
 
+// Animate header and hero on page load
+window.addEventListener('load', () => {
+  animateHeaderOnLoad();
+  animateHeroOnLoad();
+});
+
+// Also trigger on DOMContentLoaded for faster initial animation
+document.addEventListener('DOMContentLoaded', () => {
+  // Small delay to ensure styles are loaded
+  setTimeout(() => {
+    animateHeaderOnLoad();
+    animateHeroOnLoad();
+  }, 100);
+});
+
 // Header scroll handling
 window.addEventListener('scroll', headerAndSectionHandler);
+
+// Trigger handler on initial load to set initial states
+window.addEventListener('load', () => {
+  headerAndSectionHandler();
+});
 
 // Smooth scrolling for hash navigation links (keeps existing behavior)
 document.querySelectorAll('nav a, .logo').forEach(anchor => {
