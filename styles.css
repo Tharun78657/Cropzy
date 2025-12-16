@@ -47,6 +47,7 @@
         opacity: 0;
         transform: translateY(60px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -58,6 +59,7 @@
         opacity: 0;
         transform: translateY(-40px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -69,6 +71,7 @@
         opacity: 0;
         transform: scale(0.9);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -80,6 +83,7 @@
         opacity: 0;
         transform: translateX(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -91,6 +95,7 @@
         opacity: 0;
         transform: translateX(50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -649,22 +654,262 @@ main>section:first-of-type:not(.hero) {
     transition: all 0.4s ease;
 }
 
-/* Updated Services Section - Two Equal Cards with Proper Sizes */
+/* Updated Services Section - Full Width Container Cards */
 .services-section {
-    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: linear-gradient(135deg, #f8fdf5 0%, #ffffff 50%, #fdfbf5 100%);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.services-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 10% 30%, rgba(24, 167, 75, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 70%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+/* Full Width Container Card */
+.service-full-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    margin-bottom: 30px;
+    position: relative;
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+.service-full-card:last-child {
+    margin-bottom: 0;
+}
+
+.service-full-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+}
+
+/* Full Card Header */
+.full-card-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    position: relative;
+}
+
+.full-header-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+.full-header-text h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+
+.full-header-text h3::after {
+    display: none;
+}
+
+.full-header-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Buyer Card Styling */
+.buyer-full-card {
+    border: 2px solid rgba(24, 167, 75, 0.3);
+}
+
+.buyer-full-card .full-card-header {
+    background: linear-gradient(135deg, rgba(24, 167, 75, 0.06) 0%, rgba(24, 167, 75, 0.02) 100%);
+    border-bottom: 1px solid rgba(24, 167, 75, 0.1);
+}
+
+.buyer-full-card .full-header-icon {
+    background: linear-gradient(135deg, #18a74b 0%, #15903f 100%);
+    color: white;
+    box-shadow: 0 6px 20px rgba(24, 167, 75, 0.25);
+}
+
+.buyer-full-card .full-header-text h3 {
+    color: #1a472a;
+}
+
+.buyer-full-card .full-header-text p {
+    color: #2d5a3f;
+}
+
+/* Seller Card Styling - Light Brown/Amber Theme */
+.seller-full-card {
+    border: 2px solid rgba(180, 83, 9, 0.3);
+}
+
+.seller-full-card .full-card-header {
+    background: linear-gradient(135deg, rgba(180, 83, 9, 0.08) 0%, rgba(180, 83, 9, 0.02) 100%);
+    border-bottom: 1px solid rgba(180, 83, 9, 0.12);
+}
+
+.seller-full-card .full-header-icon {
+    background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+    color: white;
+    box-shadow: 0 6px 20px rgba(180, 83, 9, 0.3);
+}
+
+.seller-full-card .full-header-text h3 {
+    color: #92400e;
+}
+
+.seller-full-card .full-header-text p {
+    color: #b45309;
+}
+
+/* Inner Services Row - 4 Cards in a Row */
+.inner-services-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    padding: 24px 28px;
+}
+
+@media (max-width: 1100px) {
+    .inner-services-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .inner-services-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 20px;
+    }
+
+    .full-card-header {
+        padding: 20px;
+        gap: 14px;
+    }
+
+    .full-header-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+    }
+
+    .full-header-text h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Inner Service Card */
+.inner-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 22px 18px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+.inner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Inner Card Icon - No animation on hover */
+.inner-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 14px;
+}
+
+/* Buyer Icon */
+.buyer-icon {
+    background: linear-gradient(135deg, rgba(24, 167, 75, 0.1) 0%, rgba(24, 167, 75, 0.05) 100%);
+    color: #18a74b;
+    border: 1px solid rgba(24, 167, 75, 0.12);
+}
+
+/* Seller Icon - Light Brown/Amber */
+.seller-icon {
+    background: linear-gradient(135deg, rgba(180, 83, 9, 0.12) 0%, rgba(180, 83, 9, 0.05) 100%);
+    color: #b45309;
+    border: 1px solid rgba(180, 83, 9, 0.15);
+}
+
+/* Inner Card Content */
+.inner-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+    line-height: 1.35;
+    transition: color 0.3s ease;
+}
+
+.buyer-full-card .inner-card:hover h4 {
+    color: #18a74b;
+}
+
+.seller-full-card .inner-card:hover h4 {
+    color: #b45309;
+}
+
+.inner-card p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* Visible borders for inner cards */
+.buyer-full-card .inner-card {
+    border: 2px solid rgba(24, 167, 75, 0.2);
+}
+
+.buyer-full-card .inner-card:hover {
+    border-color: #18a74b;
+    background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+    box-shadow: 0 8px 25px rgba(24, 167, 75, 0.15);
+}
+
+.seller-full-card .inner-card {
+    border: 2px solid rgba(180, 83, 9, 0.2);
+}
+
+.seller-full-card .inner-card:hover {
+    border-color: #b45309;
+    background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+    box-shadow: 0 8px 25px rgba(180, 83, 9, 0.15);
 }
 
 .services-cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin-top: 40px;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin-top: 28px;
 }
 
 .service-type-card {
@@ -919,6 +1164,138 @@ main>section:first-of-type:not(.hero) {
     border-bottom: none;
 }
 
+/* Mini cards for services grid */
+.service-mini-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-mini-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.service-mini-head {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.service-mini-head .icon-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(23, 167, 75, 0.12);
+    color: #0d2e1a;
+    font-size: 16px;
+}
+
+.service-mini-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0d2e1a;
+    background: rgba(23, 167, 75, 0.12);
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
+.service-mini-card.seller .service-mini-head .icon-circle,
+.service-mini-card.seller .service-mini-badge {
+    background: rgba(212, 175, 55, 0.18);
+    color: #7a5a10;
+}
+
+.service-mini-card h4 {
+    margin: 2px 0 4px;
+    font-size: 1rem;
+    color: #1a472a;
+}
+
+.service-mini-desc {
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Service Section Headers */
+.service-section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.service-section-header:first-of-type {
+    margin-top: 0;
+}
+
+.service-section-header i {
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.service-section-header h3 {
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+}
+
+.service-section-header h3::after {
+    display: none;
+}
+
+.buyer-header {
+    background: linear-gradient(135deg, rgba(24, 167, 75, 0.1) 0%, rgba(24, 167, 75, 0.05) 100%);
+    border-left: 4px solid #18a74b;
+}
+
+.buyer-header i {
+    color: #18a74b;
+}
+
+.buyer-header h3 {
+    color: #1a472a;
+}
+
+.seller-header {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+    border-left: 4px solid #d4af37;
+}
+
+.seller-header i {
+    color: #d4af37;
+}
+
+.seller-header h3 {
+    color: #7a5a10;
+}
+
+/* Seller card icon styling */
+.service-mini-card.seller .icon-circle {
+    background: rgba(212, 175, 55, 0.18);
+    color: #7a5a10;
+}
+
 
 
 /* Updated Products Section - Product Cards with Proper Sizes */
@@ -1105,51 +1482,52 @@ main>section:first-of-type:not(.hero) {
 }
 
 .member-img {
-    height: 280px;
+    height: 300px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center bottom;
     background-color: #f0f0f0;
     position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.member-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
-    display: flex;
-    align-items: flex-end;
-    padding: 25px;
+/* Name and Designation below image */
+.team-info-box {
+    padding: 24px 25px 10px;
 }
 
-.member-info {
-    text-align: left;
-    color: white;
-    z-index: 2;
-}
-
-.member-info h3 {
-    color: white;
-    margin-bottom: 5px;
+.team-info-box h3 {
+    color: #1a1a1a;
+    margin-bottom: 8px;
     font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
-.member-info p {
-    color: var(--light-gold);
+.team-info-box .designation {
+    color: #18a74b;
     font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
 }
 
 .team-member-content {
-    padding: 25px;
+    padding: 0 25px 25px;
 }
 
 .team-member-content p {
     font-size: 1rem;
     color: #666;
     line-height: 1.6;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.team-member-content p:last-child {
+    margin-bottom: 0;
 }
 
 /* Updated Contact Section - Compact Design with Proper Sizes */
@@ -1794,6 +2172,10 @@ footer:before {
         width: 40px;
         height: 40px;
         font-size: 1rem;
+    }
+
+    .team-member-content p {
+        text-align: center;
     }
 }
 
