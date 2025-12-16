@@ -1491,6 +1491,10 @@ main>section:first-of-type:not(.hero) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+.anil-member-img {
+    height: 260px !important;
+}
+
 /* Name and Designation below image */
 .team-info-box {
     padding: 24px 25px 10px;
